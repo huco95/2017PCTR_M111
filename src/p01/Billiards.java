@@ -22,6 +22,7 @@ public class Billiards extends JFrame {
 
 	private final int N_BALL = 14;
 	private Ball[] balls;
+	private Thread[] threadBalls;
 
 	public Billiards() {
 
@@ -64,7 +65,13 @@ public class Billiards extends JFrame {
 	private class StartListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Code is executed when start button is pushed
+			if (threadBalls == null) {
+				threadBalls = new Thread[N_BALL];
+				for (int i = 0; i < N_BALL; i++) {
+					threadBalls[i] = new Thread(new ThreadBall(balls[i], board));
+					threadBalls[i].start();
+				}
+			}
 
 		}
 	}
