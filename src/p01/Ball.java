@@ -4,7 +4,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Ball {
-       //TODO  Find an archive named Ball.png 
 	private String Ball = "Ball.png"; 
 
 	private double x,y,dx,dy;
